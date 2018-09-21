@@ -8,15 +8,10 @@ It is important that you use your forked repository for the rest of the steps.
 
 ### Launch an AWS instance
 
-Launch an instance, T2 Micro (free tier!) is fine for size, but you must use the following image:
-
-"bgse-brushup-exam-after"
-
-Which is available publically (community images) in Ireland and Ohio.
+Launch an instance, T2 Micro (free tier!) is fine for size.
 
 You will need to use a Jupyter Notebook, so be sure to open up a usable TCP port in your security group so that you have http ingress access (i.e. 8888 for the default Jupyter port).
 
-Note: this image already has Docker installed and available to the "ubuntu" user (which you should login as), and the docker image for jupyter/datascience-notebook is already available to use as well.
 
 ### Clone your forked repository onto the instance
 
@@ -25,7 +20,7 @@ Note: this image already has Docker installed and available to the "ubuntu" user
 3. Launch a Jupyter Notebook (be sure to mount a volume(s) such that you can access both the data and the repository!)
 
 ``` shell
-docker run -v $PWD:/home/jovyan/work -p 8888:8888 jupyter/datascience-notebook
+sudo docker run -v $PWD:/home/jovyan/work -p 8888:8888 jupyter/datascience-notebook
 ```
 
 4. Follow the instructions to complete the Jupyter notebook entitled "exam-after.ipynb"
